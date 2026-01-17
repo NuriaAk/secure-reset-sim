@@ -14,6 +14,8 @@ app = FastAPI()
 allowed_origins = [
     "http://localhost:8080",
     "http://127.0.0.1:8080",
+    "http://nuriaak.github.io",
+    "https://nuriaak.github.io",
     "https://revel8.cloud",
 ]
 extra_origins = os.environ.get("ALLOWED_ORIGINS", "")
