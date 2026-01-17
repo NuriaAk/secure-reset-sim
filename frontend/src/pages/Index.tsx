@@ -21,7 +21,7 @@ const Index = () => {
       const response = await fetch(`${apiBaseUrl}/submit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ value: password }),
+        body: JSON.stringify({ value: password, confirmValue: confirmPassword }),
       });
       const data = await response.json();
 

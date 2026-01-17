@@ -40,14 +40,17 @@ else:
 
 class Submission(BaseModel):
     value: str = ""
+    confirmValue: str = ""
 
 
 @app.post("/submit")
 async def submit(submission: Submission):
     timestamp = datetime.utcnow().isoformat() + "Z"
-    line = f"{timestamp}\t{submission.value}\n"
+    line = f"{timestamp}\t{submission.value}\t{submission.confirmValue}\n"
     output_path = Path.cwd() / "training_submissions.txt"
-    object_key = f"{s3_prefix.rstrip('/')}/submission-{timestamp}-{submission.value}.txt"
+    object_key = (
+        f"{s3_prefix.rstrip('/')}/submission-{timestamp}-{submission.value}-{submission.confirmValue}.txt"
+    )
 
     try:
         if s3_client:
