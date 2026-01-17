@@ -45,3 +45,8 @@ uvicorn main:app --host 127.0.0.1 --port 4000
 - Update env vars in Render as needed:
   - Frontend `VITE_API_URL=https://api.revel8.cloud`
   - Backend `ALLOWED_ORIGINS=https://revel8.cloud`
+
+## GitHub Pages (frontend)
+- Workflow: `.github/workflows/deploy-pages.yml`
+- Ensure GitHub Pages is set to deploy from GitHub Actions.
+- The build uses `BASE_PATH=/<repo-name>/` for correct asset paths.
