@@ -35,6 +35,7 @@ jobs:
         run: npm run build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_API_URL: https://secure-reset-sim.onrender.com
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
